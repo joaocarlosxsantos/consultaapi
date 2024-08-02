@@ -1,5 +1,6 @@
-const express = require('express');
-const fetch = require('node-fetch');
+import express from 'express';
+import fetch from 'node-fetch';
+
 const app = express();
 const port = 3000;
 
@@ -8,16 +9,18 @@ app.use(express.json());
 
 app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
-    let url = `https://api.conciliadora.com.br/api/${tipoConsulta}`;
+    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${parametros}`;
+
+    console.log(`URL: ${url}, API Key: ${apiKey}`);
 
     try {
         const response = await fetch(url, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': apiKey
-            },
-            body: JSON.stringify(parametros)
+                'Authorization': apiKey,
+                'Accept': 'application/json'
+            }
         });
 
         const data = await response.json();

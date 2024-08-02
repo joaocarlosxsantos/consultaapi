@@ -4,11 +4,12 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar Servidor",
-            "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/server.js",
-            "outFiles": ["${workspaceFolder}/**/*.js"],
-            "console": "integratedTerminal"
+            "name": "Launch Server",
+            "program": "${workspaceFolder}/server.mjs",
+            "outFiles": ["${workspaceFolder}/**/*.mjs"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": ["<node_internals>/**"]
         }
     ]
 }
