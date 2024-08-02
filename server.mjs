@@ -10,7 +10,6 @@ app.use(express.json());
 app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
 
-    // Formata a URL com o prefixo $filter
     const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${encodeURIComponent(parametros)}`;
 
     console.log(`URL: ${url}, API Key: ${apiKey}`);
@@ -26,9 +25,8 @@ app.post('/consulta', async (req, res) => {
         });
 
         const text = await response.text();
-        console.log('Resposta bruta:', text); // Log da resposta bruta
+        console.log('Resposta bruta:', text);
 
-        // Verifica se a resposta é um JSON válido
         let data;
         try {
             data = JSON.parse(text);

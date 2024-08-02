@@ -18,12 +18,12 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
             })
         });
 
-        const text = await response.text(); // Obtenha a resposta como texto
-        console.log('Resposta bruta:', text); // Mostre a resposta no console
+        const text = await response.text();
+        console.log('Resposta bruta:', text);
 
         let result;
         try {
-            result = JSON.parse(text); // Tente converter o texto em JSON
+            result = JSON.parse(text);
         } catch (e) {
             console.error('Erro ao analisar JSON:', e);
             result = { error: 'Resposta não é um JSON válido' };
