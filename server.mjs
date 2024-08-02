@@ -7,22 +7,30 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
+const fetchWithTimeout = (url, options, timeout = 5000) => {
+    return Promise.race([
+        fetch(url, options),
+        new Promise((_, reject) => 
+            setTimeout(() => reject(new Error('Timeout')), timeout)
+        )
+    ]);
+};
+
 app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
-
-    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${parametros}`;
+    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${encodeURIComponent(parametros)}`;
 
     console.log(`URL: ${url}, API Key: ${apiKey}`);
 
     try {
-        const response = await fetch(url, {
+        const response = await fetchWithTimeout(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': apiKey,
                 'Accept': 'application/json'
             }
-        });
+        }, 5000); // Timeout configurado para 5 segundos
 
         const text = await response.text();
         console.log('Resposta bruta:', text);
@@ -38,7 +46,7 @@ app.post('/consulta', async (req, res) => {
         res.json(data);
     } catch (error) {
         console.error('Erro na consulta:', error);
-        res.status(500).json({ error: 'Erro na consulta' });
+        res.status(500).json({ error: error.message });
     }
 });
 
