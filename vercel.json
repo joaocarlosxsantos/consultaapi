@@ -24,8 +24,8 @@
       "dest": "/public/script.js"
     },
     {
-      "src": "/images",
-      "dest": "/public/images"
+      "src": "/images/consulta.png",
+      "dest": "/public/images/consulta.png"
     },
     {
       "src": "/api/(.*)",
