@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta API Conciliadora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Consulta API Conciliadora</h1>
+    <form id="consultaForm">
+        <label for="tipoConsulta">Tipo de Consulta:</label>
+        <select id="tipoConsulta">
+            <option value="ConsultaPagamento">Consulta Pagamento</option>
+            <option value="ConsultaVenda">Consulta Venda</option>
+        </select>
+
+        <label for="apiKey">Chave API:</label>
+        <input type="text" id="apiKey" required>
+
+        <label for="parametros">Parâmetros (JSON):</label>
+        <textarea id="parametros" required></textarea>
+
+        <button type="submit">Consultar</button>
+    </form>
+
+    <h2>Resultado</h2>
+    <pre id="resultado"></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
