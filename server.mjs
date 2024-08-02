@@ -9,7 +9,9 @@ app.use(express.json());
 
 app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
-    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?${parametros}`;
+
+    // Formata a URL com o prefixo $filter
+    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${parametros}`;
 
     console.log(`URL: ${url}, API Key: ${apiKey}`);
 
