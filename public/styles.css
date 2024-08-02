@@ -4,17 +4,30 @@ body {
     padding: 20px;
     background-color: #f4f4f9;
     color: #333;
+    display: flex;
+    flex-direction: row; /* Organize os itens na horizontal */
+    justify-content: space-between; /* Espaço entre os itens */
 }
 
-h1 {
-    color: #0056b3;
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Limite a largura da página */
+    margin: 0 auto; /* Centraliza a página */
+    gap: 20px; /* Espaçamento entre as colunas */
 }
 
-form {
+.form-container, .result-container {
+    flex: 1; /* Ambos os containers ocupam o mesmo espaço disponível */
     background: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0056b3;
+    margin: 0 0 20px; /* Margem inferior para separar do conteúdo */
 }
 
 label {
@@ -46,4 +59,5 @@ pre {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap; /* Para quebra de linha automática */
 }

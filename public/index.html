@@ -7,25 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Consulta API Conciliadora</h1>
-    <form id="consultaForm">
-        <label for="tipoConsulta">Tipo de Consulta:</label>
-        <select id="tipoConsulta">
-            <option value="ConsultaPagamento">Consulta Pagamento</option>
-            <option value="ConsultaVenda">Consulta Venda</option>
-        </select>
+    <div class="container">
+        <div class="form-container">
+            <h1>Consulta API Conciliadora</h1>
+            <form id="consultaForm">
+                <label for="tipoConsulta">Tipo de Consulta:</label>
+                <select id="tipoConsulta">
+                    <option value="ConsultaPagamento">Consulta Pagamento</option>
+                    <option value="ConsultaVenda">Consulta Venda</option>
+                </select>
 
-        <label for="apiKey">Chave API:</label>
-        <input type="text" id="apiKey" required>
+                <label for="apiKey">Chave API:</label>
+                <input type="text" id="apiKey" required>
 
-        <label for="parametros">Parâmetros:</label>
-        <input type="text" id="parametros" required>
+                <label for="parametros">Parâmetros:</label>
+                <input type="text" id="parametros" required>
 
-        <button type="submit">Consultar</button>
-    </form>
+                <button type="submit">Consultar</button>
+            </form>
+        </div>
 
-    <h2>Resultado</h2>
-    <pre id="resultado"></pre>
+        <div class="result-container">
+            <h2>Resultado</h2>
+            <pre id="resultado"></pre>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
