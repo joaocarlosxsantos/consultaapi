@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
-const fetchWithTimeout = (url, options, timeout = 5000) => {
+const fetchWithTimeout = (url, options, timeout = 5000000) => {
     return Promise.race([
         fetch(url, options),
         new Promise((_, reject) => 
