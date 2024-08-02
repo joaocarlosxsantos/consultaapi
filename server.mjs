@@ -11,7 +11,7 @@ app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
 
     // Formata a URL com o prefixo $filter
-    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${parametros}`;
+    const url = `https://api.conciliadora.com.br/api/${tipoConsulta}?$filter=${encodeURIComponent(parametros)}`;
 
     console.log(`URL: ${url}, API Key: ${apiKey}`);
 
@@ -25,13 +25,18 @@ app.post('/consulta', async (req, res) => {
             }
         });
 
-        if (!response.ok) {
-            // Se a resposta não for bem-sucedida, envie uma mensagem de erro
-            const errorText = await response.text();
-            return res.status(response.status).send({ error: `Erro na consulta: ${errorText}` });
+        const text = await response.text();
+        console.log('Resposta bruta:', text); // Log da resposta bruta
+
+        // Verifica se a resposta é um JSON válido
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error('Erro ao analisar JSON:', e);
+            return res.status(500).json({ error: 'Resposta não é um JSON válido' });
         }
 
-        const data = await response.json();
         res.json(data);
     } catch (error) {
         console.error('Erro na consulta:', error);
