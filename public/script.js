@@ -9,9 +9,9 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
     const nsu = document.getElementById('nsu').value;
 
     try {
-        let data_inicio_formatada = `${data_inicio.getFullYear()}-${(data_inicio.getMonth() + 1).toString().padStart(2, '0')}-${data_inicio.getDate().toString().padStart(2, '0')}`;
-        let data_fim_formatada = `${data_fim.getFullYear()}-${(data_fim.getMonth() + 1).toString().padStart(2, '0')}-${data_fim.getDate().toString().padStart(2, '0')}`;
-        parametros = ('Data',tipoConsulta,' ge ',data_inicio_formatada,' and Data',tipoConsulta,' le ',data_fim_formatada)
+        //let data_inicio_formatada = `${data_inicio.getFullYear()}-${(data_inicio.getMonth() + 1).toString().padStart(2, '0')}-${data_inicio.getDate().toString().padStart(2, '0')}`;
+        //let data_fim_formatada = `${data_fim.getFullYear()}-${(data_fim.getMonth() + 1).toString().padStart(2, '0')}-${data_fim.getDate().toString().padStart(2, '0')}`;
+        parametros = ('Data',tipoConsulta,' ge ',data_inicio,' and Data',tipoConsulta,' le ',data_fim)
 
         const response = await fetch('/consulta', {
             method: 'POST',
