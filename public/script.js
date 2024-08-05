@@ -9,7 +9,7 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
     const nsu = document.getElementById('nsu').value;
     const parametros = `Data${tipoConsulta} ge ${data_inicio} and Data${tipoConsulta} le ${data_fim}`;
 
-    if(estabelecimento !=  null){parametros += ` and Estabelecimento eq ${Estabelecimento}`};
+    if(estabelecimento !=  null){parametros += ` and Estabelecimento eq ${estabelecimento}`};
     if(nsu !=  null){parametros += ` and Nsu eq ${nsu}`};
     
     try {
