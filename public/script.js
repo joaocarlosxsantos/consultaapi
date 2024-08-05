@@ -8,10 +8,10 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
     const estabelecimento = document.getElementById('estabelecimento').value;
     const nsu = document.getElementById('nsu').value;
     const parametros = `Data${tipoConsulta} ge ${data_inicio} and Data${tipoConsulta} le ${data_fim}`;
-    //let data_inicio_formatada = `${data_inicio.getFullYear()}-${(data_inicio.getMonth() + 1).toString().padStart(2, '0')}-${data_inicio.getDate().toString().padStart(2, '0')}`;
-        //let data_fim_formatada = `${data_fim.getFullYear()}-${(data_fim.getMonth() + 1).toString().padStart(2, '0')}-${data_fim.getDate().toString().padStart(2, '0')}`;
 
-
+    if(estabelecimento !==  null){parametros += `and Estabelecimento eq ${Estabelecimento}`};
+    if(nsu !==  null){parametros += `and Nsu eq ${nsu}`};
+    
     try {
     
         const response = await fetch('/consulta', {
