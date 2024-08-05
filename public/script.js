@@ -7,10 +7,10 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
     const data_fim = document.getElementById('data_fim').value;
     const estabelecimento = document.getElementById('estabelecimento').value;
     const nsu = document.getElementById('nsu').value;
-    const parametros = `Data${tipoConsulta} ge ${data_inicio} and Data${tipoConsulta} le ${data_fim}`;
+    let parametros = `Data${tipoConsulta} ge ${data_inicio} and Data${tipoConsulta} le ${data_fim}`;
 
-    if(estabelecimento !=  null){parametros += ` and Estabelecimento eq ${estabelecimento}`};
-    if(nsu !=  null){parametros += ` and Nsu eq ${nsu}`};
+    if(estabelecimento !=  ''){parametros += ` and Estabelecimento eq '${estabelecimento}'`};
+    if(nsu !=  ''){parametros += ` and Nsu eq '${nsu}'`};
     
     try {
     
