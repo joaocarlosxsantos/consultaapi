@@ -18,7 +18,7 @@ const fetchWithTimeout = (url, options, timeout = 5000000) => {
 
 app.post('/consulta', async (req, res) => {
     const { tipoConsulta, apiKey, parametros } = req.body;
-    const url = `https://api.conciliadora.com.br/api/Consulta${tipoConsulta}?$filter=${parametros}`;
+    const url = `https://api.conciliadora.com.br/api/Consulta${tipoConsulta}?$filter=${encodeURIComponent(parametros)}`;
 
     console.log(`URL: ${url}, API Key: ${apiKey}`);
 
