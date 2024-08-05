@@ -30,7 +30,7 @@ app.post('/consulta', async (req, res) => {
                 'Authorization': apiKey,
                 'Accept': 'application/json'
             }
-        }, 5000); // Timeout configurado para 5 segundos
+        }, 5000000); // Timeout configurado para 5 segundos
 
         const text = await response.text();
         console.log('Resposta bruta:', text);
