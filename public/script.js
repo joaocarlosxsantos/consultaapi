@@ -3,9 +3,15 @@ document.getElementById('consultaForm').addEventListener('submit', async functio
 
     const tipoConsulta = document.getElementById('tipoConsulta').value;
     const apiKey = document.getElementById('apiKey').value;
-    const parametros = document.getElementById('parametros').value;
+    const data_inicio = document.getElementById('data_inicio').value;
+    const data_fim = document.getElementById('data_fim').value;
+    const estabelecimento = document.getElementById('estabelecimento').value;
+    const nsu = document.getElementById('nsu').value;
 
     try {
+
+        parametros = ('Data',tipoConsulta,' ge ',data_inicio,' and Data',tipoConsulta,' le ',data_fim)
+
         const response = await fetch('/consulta', {
             method: 'POST',
             headers: {

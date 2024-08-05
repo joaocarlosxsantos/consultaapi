@@ -14,15 +14,24 @@
             <form id="consultaForm">
                 <label for="tipoConsulta">Tipo de Consulta:</label>
                 <select id="tipoConsulta">
-                    <option value="ConsultaPagamento">Consulta Pagamento</option>
-                    <option value="ConsultaVenda">Consulta Venda</option>
+                    <option value="Pagamento">Consulta Pagamento</option>
+                    <option value="Venda">Consulta Venda</option>
                 </select>
 
                 <label for="apiKey">Chave API:</label>
                 <input type="text" id="apiKey" required>
 
-                <label for="parametros">Parâmetros:</label>
-                <input type="text" id="parametros" required>
+                <label for="datainicio">Data início:</label>
+                <input type="date" id="data_inicio" required>
+
+                <label for="datafim">Data Fim:</label>
+                <input type="date" id="data_fim" required>
+
+                <label for="estabelecimento">Estabelecimento:</label>
+                <input type="text" id="estabelecimento">
+
+                <label for="nsu">NSU:</label>
+                <input type="text" id="nsu">
 
                 <button type="submit">Consultar</button>
             </form>
